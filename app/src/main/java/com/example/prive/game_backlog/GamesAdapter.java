@@ -1,16 +1,13 @@
 package com.example.prive.game_backlog;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -39,11 +36,22 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
 
     @Override
     public void onBindViewHolder(@NonNull GamesViewHolder holder, int position) {
-        Game games = gameList.get(position);
-        holder.title.setText(games.getName());
-        holder.platform.setText(games.getPlatform());
-        holder.status.setText(games.getStatus());
-        holder.date.setText(games.getDate());
+        final Game game = gameList.get(position);
+        holder.title.setText(game.getName());
+        holder.platform.setText(game.getPlatform());
+        holder.status.setText(game.getStatus());
+        holder.date.setText(game.getDate());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context = v.getContext();
+                Intent intent = new Intent(context, ChangeInfoActivity.class);
+                intent.putExtra("Game", game);
+                context.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
@@ -51,28 +59,20 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
         return gameList.size();
     }
 
-    public class GamesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class GamesViewHolder extends RecyclerView.ViewHolder {
         public TextView title;
         public TextView platform;
         public TextView status;
         public TextView date;
 
-        int clickedPosition = getAdapterPosition();
-
         GamesViewHolder(View gameView) {
 
             super(gameView);
 
-            title = (TextView) gameView.findViewById(R.id.Name);
-            platform = (TextView) gameView.findViewById(R.id.Platform);
-            status = (TextView) gameView.findViewById(R.id.Status);
-            date = (TextView) gameView.findViewById(R.id.Date);
-
-            gameView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
+            title = (TextView) gameView.findViewById(R.id.CardName);
+            platform = (TextView) gameView.findViewById(R.id.CardPlatform);
+            status = (TextView) gameView.findViewById(R.id.CardStatus);
+            date = (TextView) gameView.findViewById(R.id.CardDate);
         }
     }
 }

@@ -37,7 +37,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/TitleText"
+                android:id="@+id/ChangeTitle"
                 android:layout_width="0dp"
                 android:layout_height="51dp"
                 android:layout_marginEnd="8dp"
@@ -51,7 +51,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/Title" />
 
             <EditText
-                android:id="@+id/PlatformText"
+                android:id="@+id/ChangePlatform"
                 android:layout_width="0dp"
                 android:layout_height="49dp"
                 android:layout_marginEnd="8dp"
@@ -63,10 +63,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TitleText" />
+                app:layout_constraintTop_toBottomOf="@+id/ChangeTitle" />
 
             <EditText
-                android:id="@+id/NotesText"
+                android:id="@+id/ChangeNotes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -77,10 +77,10 @@
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/PlatformText" />
+                app:layout_constraintTop_toBottomOf="@+id/ChangePlatform" />
 
             <TextView
-                android:id="@+id/Status"
+                android:id="@+id/CardStatus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -90,7 +90,7 @@
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/NotesText" />
+                app:layout_constraintTop_toBottomOf="@+id/ChangeNotes" />
 
             <Spinner
                 android:id="@+id/Spinner"
@@ -101,7 +101,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Status" />
+                app:layout_constraintTop_toBottomOf="@+id/CardStatus" />
 
         </android.support.constraint.ConstraintLayout>
 

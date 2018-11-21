@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddGameActivity"></activity>
+        <activity android:name=".ChangeInfoActivity"></activity>
     </application>
 
 </manifest>

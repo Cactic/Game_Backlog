@@ -7,20 +7,28 @@ import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 
-@Entity (tableName = "game")
-public class Game implements Serializable{
-    @PrimaryKey
-    @NonNull
+@Entity(tableName = "Game")
+public class Game implements Serializable {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private String name;
     private String platform;
     private String status;
     private String date;
+    private String notes;
 
-    public Game(String name, String platform, String status, String date) {
+    public Game(String name, String platform, String status, String notes, String date) {
         this.name = name;
         this.platform = platform;
         this.status = status;
+        this.notes = notes;
         this.date = date;
+    }
+
+    public int getId(){return id;}
+
+    public void setId(int id){
+        this.id = id;
     }
 
     public String getName() {
@@ -46,6 +54,10 @@ public class Game implements Serializable{
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getNotes(){ return notes; }
+
+    public void setNotes(String notes) { this.notes = notes; }
 
     public String getDate() {
         return date;

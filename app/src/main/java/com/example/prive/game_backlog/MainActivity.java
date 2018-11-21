@@ -18,11 +18,11 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     static AppDatabase db;
 
-    private List<Game> gameList;
+    static List<Game> gameList;
     private GamesAdapter adapter;
     private RecyclerView gameRV;
 
@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         final Snackbar sb = Snackbar.make(findViewById(android.R.id.content), "", Snackbar.LENGTH_SHORT);
 
@@ -45,32 +44,32 @@ public class MainActivity extends AppCompatActivity {
         gameRV.setAdapter(adapter);
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback =
-                new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-                    @Override
-                    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder
-                            target) {
-                        return false;
-                    }
-
-                    //Called when a user swipes left or right on a ViewHolder
-                    @Override
-                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
-
-                        //Get the index corresponding to the selected position
-                        int position = (viewHolder.getAdapterPosition());
-
-                        if (swipeDir == 4 || swipeDir == 8) {
-                            db.gameDao().deleteGames(gameList.get(position));
-                            gameList.remove(position);
-                            updateUI();
-                            sb.setText("Game has been deleted");
-                            sb.show();
-                        } else {
-                            sb.setText("try again");
-                            sb.show();
+                    new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                        @Override
+                        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder
+                                target) {
+                            return false;
                         }
-                    }
-                };
+
+                        //Called when a user swipes left or right on a ViewHolder
+                        @Override
+                        public void onSwiped(RecyclerView.ViewHolder viewHolder, int swipeDir) {
+
+                            //Get the index corresponding to the selected position
+                            int position = (viewHolder.getAdapterPosition());
+
+                            if (swipeDir == 4 || swipeDir == 8) {
+                                db.gameDao().deleteGames(gameList.get(position));
+                                gameList.remove(position);
+                                updateUI();
+                                sb.setText("Game has been deleted");
+                                sb.show();
+                            } else {
+                                sb.setText("try again");
+                                sb.show();
+                            }
+                        }
+                    };
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         itemTouchHelper.attachToRecyclerView(gameRV);
 
@@ -92,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

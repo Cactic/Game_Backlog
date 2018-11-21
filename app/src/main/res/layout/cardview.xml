@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/Platform"
+                android:id="@+id/CardPlatform"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -32,21 +32,21 @@
                 android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Name" />
+                app:layout_constraintTop_toBottomOf="@+id/CardName" />
 
             <TextView
-                android:id="@+id/Date"
+                android:id="@+id/CardDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
                 android:gravity="left"
                 android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="@+id/Status"
+                app:layout_constraintBottom_toBottomOf="@+id/CardStatus"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/Status" />
+                app:layout_constraintTop_toTopOf="@+id/CardStatus" />
 
             <TextView
-                android:id="@+id/Status"
+                android:id="@+id/CardStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -54,13 +54,13 @@
                 android:gravity="center_horizontal"
                 android:text="TextView"
                 android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="@+id/Platform"
+                app:layout_constraintBottom_toBottomOf="@+id/CardPlatform"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/Platform" />
+                app:layout_constraintTop_toTopOf="@+id/CardPlatform" />
 
             <TextView
-                android:id="@+id/Name"
+                android:id="@+id/CardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
